@@ -65,7 +65,7 @@ use IR\Bundle\ContactBundle\Model\Message as BaseMessage;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="acme_message")
+ * @ORM\Table(name="acme_contact_message")
  */
 class Message extends BaseMessage
 {
@@ -102,7 +102,7 @@ In YAML:
 # src/Acme/ContactBundle/Resources/config/doctrine/Message.orm.yml
 Acme\ContactBundle\Entity\Message:
     type:  entity
-    table: acme_message
+    table: acme_contact_message
     id:
         id:
             type: integer
@@ -120,7 +120,7 @@ In XML:
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                                       http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="Acme\ContactBundle\Entity\Message" table="acme_message">
+    <entity name="Acme\ContactBundle\Entity\Message" table="acme_contact_message">
         <id name="id" type="integer" column="id">
             <generator strategy="AUTO" />
         </id> 
