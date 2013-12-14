@@ -146,8 +146,12 @@ Add the following configuration to your `routing.yml` file:
 
 ``` yaml
 # app/config/routing.yml
-ir_contact_admin:
-    resource: "@IRContactBundle/Resources/config/routing/admin.xml"
+ir_contact:
+    resource: "@IRContactBundle/Resources/config/routing/contact.xml"
+    prefix: /contact
+
+ir_contact_message:
+    resource: "@IRContactBundle/Resources/config/routing/message.xml"
     prefix: /admin/messages
 ```
 

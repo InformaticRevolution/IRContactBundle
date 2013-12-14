@@ -1,3 +1,9 @@
+# Contact
+contact:
+    index:
+        title: Contact us
+        submit: Send
+
 # Message
 message: 
     email: E-mail address

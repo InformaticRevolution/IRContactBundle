@@ -4,7 +4,11 @@
         xsi:schemaLocation="http://symfony.com/schema/routing 
                             http://symfony.com/schema/routing/routing-1.0.xsd">
         
-    <route id="ir_contact_send" pattern="/">
-        <default key="_controller">IRContactBundle:Contact:send</default>
+    <route id="ir_contact_index" pattern="/" methods="GET">
+        <default key="_controller">IRContactBundle:Contact:index</default>
     </route>  
+    
+    <route id="ir_contact_submit" pattern="/submit" methods="POST">
+        <default key="_controller">IRContactBundle:Contact:submit</default>
+    </route>      
 </routes>

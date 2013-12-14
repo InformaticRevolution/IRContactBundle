@@ -25,7 +25,7 @@ class ContactControllerTest extends WebTestCase
     
     public function testNewActionGetMethod()
     {
-        $crawler = $this->client->request('GET', '/contact-us/');
+        $crawler = $this->client->request('GET', '/contact/');
 
         $this->assertResponseStatusCode(200);
         $this->assertCount(1, $crawler->filter('form'));
@@ -33,7 +33,7 @@ class ContactControllerTest extends WebTestCase
     
     public function testNewActionPostMethod()
     {        
-        $this->client->request('POST', '/contact-us/', array(
+        $this->client->request('POST', '/contact/send', array(
             'ir_contact_message_form' => array (
                 'email' => 'foo@gmail.com',
                 'subject' => 'New message',
@@ -47,13 +47,13 @@ class ContactControllerTest extends WebTestCase
         $this->client->followRedirect();
         
         $this->assertResponseStatusCode(200);
-        $this->assertCurrentUri('/contact-us/');
+        $this->assertCurrentUri('/contact/');
     }  
     
     public function testNewMessageNotificationSent()
     {           
         $this->client->enableProfiler();
-        $this->client->request('POST', '/contact-us/', array(
+        $this->client->request('POST', '/contact/send', array(
             'ir_contact_message_form' => array (
                 'email' => 'foo@gmail.com',
                 'subject' => 'New message',
