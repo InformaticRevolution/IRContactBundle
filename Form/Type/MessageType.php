@@ -55,8 +55,7 @@ class MessageType extends AbstractType
             ->add('body', null, array(                 
                 'label' => 'form.message.body',
                 'translation_domain' => 'ir_contact',
-            ))                   
-        ;
+            ));
     }
    
     /**
