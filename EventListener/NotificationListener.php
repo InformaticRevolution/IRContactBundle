@@ -37,7 +37,7 @@ class NotificationListener implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return array(
-            IRContactEvents::CONTACT_COMPLETED => 'sendNotification',
+            IRContactEvents::MESSAGE_SUBMITTED => 'sendNotification',
         );
     }
 

@@ -54,7 +54,7 @@ class ContactController extends ContainerAware
             
             /* @var $dispatcher \Symfony\Component\EventDispatcher\EventDispatcherInterface */
             $dispatcher = $this->container->get('event_dispatcher');          
-            $dispatcher->dispatch(IRContactEvents::CONTACT_COMPLETED, new MessageEvent($message));            
+            $dispatcher->dispatch(IRContactEvents::MESSAGE_SUBMITTED, new MessageEvent($message));            
             
             return new RedirectResponse($this->container->get('router')->generate('ir_contact_index'));  
         }

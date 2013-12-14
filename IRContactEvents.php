@@ -19,11 +19,11 @@ namespace IR\Bundle\ContactBundle;
 final class IRContactEvents
 {
     /**
-     * The CONTACT_COMPLETED event occurs after saving the message in the contact process.
+     * The MESSAGE_SUBMITTED event occurs after submitting the message in the contact process.
      *
      * The event listener method receives a IR\Bundle\ContactBundle\Event\MessageEvent instance.
      */
-    const CONTACT_COMPLETED = 'ir_contact.contact.completed';     
+    const MESSAGE_SUBMITTED = 'ir_contact.message.submitted';     
     
     /**
      * The MESSAGE_DELETE_COMPLETED event occurs after deleting the message.
