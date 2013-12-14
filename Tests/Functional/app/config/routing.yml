@@ -1,0 +1,7 @@
+ir_contact:
+    resource: "@IRContactBundle/Resources/config/routing/contact.xml" 
+    prefix: /contact-us
+    
+ir_contact_message:
+    resource: "@IRContactBundle/Resources/config/routing/message.xml" 
+    prefix: /messages    

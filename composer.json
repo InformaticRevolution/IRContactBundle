@@ -1,0 +1,44 @@
+{
+    "name": "informaticrevolution/contact-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony IRContactBundle",
+    "keywords": ["contact"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Julien Kirsch",
+            "email": "informatic.revolution@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+        "symfony/framework-bundle": "~2.0",
+        "stof/doctrine-extensions-bundle": "1.1.*"
+    },
+    "require-dev": {
+        "symfony/class-loader": "*",
+        "symfony/twig-bundle": "*",
+        "symfony/finder": "*",
+        "symfony/browser-kit": "*",
+        "symfony/css-selector": "*",
+        "symfony/form": "*",
+        "symfony/validator": "*",
+        "symfony/yaml": "*",
+        "symfony/swiftmailer-bundle": "*",
+        "doctrine/doctrine-bundle": "*@dev",
+	"doctrine/orm": "*",
+        "nelmio/alice": "*"
+    },  
+    "config": {
+        "bin-dir": "bin"
+    },
+    "autoload": {
+        "psr-0": { "IR\\Bundle\\ContactBundle": "" }
+    },
+    "target-dir": "IR/Bundle/ContactBundle",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}

@@ -1,0 +1,38 @@
+{% trans_default_domain 'ir_contact' %}
+
+<div class="page-header">
+    <h1>{{ 'message.show.title'|trans }}</h1>
+</div>  
+
+<div class="well well-sm">
+    <a href="{{ path('ir_contact_message_delete', {'id': message.id}) }}" class="btn btn-danger">
+        <i class="glyphicon glyphicon-trash"></i> {{ 'message.action.delete'|trans }}
+    </a>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        {{ 'message.show.general_info'|trans }}
+    </div>
+
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <td>{{ 'message.email'|trans }}</td>
+                <td>{{ message.email }}</td>        
+            </tr>  
+            <tr>
+                <td>{{ 'message.subject'|trans }}</td>
+                <td>{{ message.subject }}</td>        
+            </tr>    
+            <tr>
+                <td>{{ 'message.message'|trans }}</td>
+                <td>{{ message.message }}</td>        
+            </tr>                
+            <tr>
+                <td>{{ 'message.created_at'|trans }}</td>
+                <td>{{ message.createdAt|date }}</td>
+            </tr>     
+        </tbody>
+    </table>
+</div>

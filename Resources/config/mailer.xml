@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services 
+                               http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>    
+        <parameter key="ir_contact.mailer.default.class">IR\Bundle\ContactBundle\Mailer\Mailer</parameter>    
+        <parameter key="ir_contact.mailer.twig_swift.class">IR\Bundle\ContactBundle\Mailer\TwigSwiftMailer</parameter>
+        <parameter key="ir_contact.mailer.noop.class">IR\Bundle\ContactBundle\Mailer\NoopMailer</parameter> 
+    </parameters>
+
+    <services>
+        <service id="ir_contact.mailer.default" class="%ir_contact.mailer.default.class%" public="false">
+            <argument type="service" id="mailer" />
+            <argument type="service" id="templating" />
+            <argument type="collection">
+                <argument key="template">%ir_contact.notification.template%</argument>
+                <argument key="from_email">%ir_contact.notification.from_email%</argument>
+                <argument key="to_email">%ir_contact.notification.to_email%</argument>
+            </argument>
+        </service>        
+        
+        <service id="ir_contact.mailer.twig_swift" class="%ir_contact.mailer.twig_swift.class%" public="false">
+            <argument type="service" id="mailer" />
+            <argument type="service" id="twig" />
+            <argument type="collection">
+                <argument key="template">%ir_contact.notification.template%</argument>
+                <argument key="from_email">%ir_contact.notification.from_email%</argument>
+                <argument key="to_email">%ir_contact.notification.to_email%</argument>
+            </argument>
+        </service>        
+        
+        <service id="ir_contact.mailer.noop" class="%ir_contact.mailer.noop.class%" public="false" />
+    </services>
+
+</container>

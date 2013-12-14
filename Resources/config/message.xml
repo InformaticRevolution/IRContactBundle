@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services 
+                               http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="ir_contact.form.type.message.class">IR\Bundle\ContactBundle\Form\Type\MessageType</parameter>
+    </parameters>
+
+    <services>
+        <service id="ir_contact.form.message" factory-service="form.factory" factory-method="createNamed" class="Symfony\Component\Form\Form">
+            <argument>%ir_contact.form.name.message%</argument>
+            <argument>%ir_contact.form.type.message%</argument>
+            <argument>null</argument>
+            <argument type="collection">
+                <argument key="validation_groups">%ir_contact.form.validation_groups.message%</argument>
+            </argument>              
+        </service>         
+
+        <service id="ir_contact.form.type.message" class="%ir_contact.form.type.message.class%">
+            <argument>%ir_contact.model.message.class%</argument>
+            <tag name="form.type" alias="ir_contact_message" />
+        </service>      
+    </services>
+
+</container>

@@ -1,0 +1,2 @@
+db_driver: orm
+message_class: Acme\ContactBundle\Entity\Message

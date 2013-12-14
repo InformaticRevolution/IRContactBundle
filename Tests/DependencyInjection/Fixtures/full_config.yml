@@ -1,0 +1,16 @@
+db_driver: orm
+message_class: Acme\ContactBundle\Entity\Message
+message_manager: acme_contact.manager.message
+message:
+    form:
+        type: acme_contact_message
+        name: acme_contact_message_form
+        validation_groups: [acme_contact]    
+notification:
+    template: AcmeBundle:Notification:message.txt.twig
+    from_email:
+        address: sender@example.com
+        sender_name: Foo Bar
+    to_email: recipient@acme.com
+template:
+    engine: php

@@ -1,0 +1,42 @@
+{% trans_default_domain 'ir_contact' %}
+
+<div class="page-header">
+    <h1>{{ 'message.list.title'|trans }}</h1>
+</div>    
+
+<div class="panel panel-default">
+    {% if messages|length %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>{{ 'message.email'|trans }}</th> 
+                <th>{{ 'message.subject'|trans }}</th> 
+                <th></th>             
+            </tr>
+        </thead>
+
+        <tbody>
+        {% for message in messages %}
+            <tr>
+                <td>{{ message.email }}</td>
+                <td>{{ message.subject }}</td>
+                <td>
+                    <div class="pull-right">
+                        <a href="{{ path('ir_contact_message_show', {'id': message.id}) }}" class="btn btn-default">
+                            <i class="glyphicon glyphicon-list"></i>
+                        </a>
+                        <a href="{{ path('ir_contact_message_delete', {'id': message.id}) }}" class="btn btn-danger">
+                            <i class="glyphicon glyphicon-trash"></i>
+                        </a>                            
+                    </div>               
+                </td>               
+            </tr>
+        {% endfor %}        
+        </tbody>
+    </table>
+    {% else %}
+    <div class="panel-body">
+        {{ 'message.list.no_results'|trans }}
+    </div>
+    {% endif %}
+</div>

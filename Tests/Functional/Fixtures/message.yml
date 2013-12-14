@@ -1,0 +1,5 @@
+IR\Bundle\ContactBundle\Tests\Functional\Bundle\TestBundle\Entity\Message:
+    message{1..3}:
+        email: <email()>
+        subject: <sentence(3)>
+        message: <paragraph(3)>

@@ -1,0 +1,14 @@
+ir_contact:  
+    message:
+        email:
+            not_blank: Please enter an e-mail address
+            invalid: The e-mail address is not valid
+            
+        subject:
+            not_blank: Please enter a subject
+            min_length: The subject must be at least {{ limit }} characters long
+            max_length: The subject cannot be longer than {{ limit }} characters     
+            
+        message:
+            not_blank: Please enter a message
+            min_length: The message must be at least {{ limit }} characters long            

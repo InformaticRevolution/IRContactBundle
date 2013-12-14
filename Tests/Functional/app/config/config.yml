@@ -1,0 +1,49 @@
+# Framework Configuration
+framework:
+    secret: test
+    test: ~
+    profiler: ~
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+    form:            ~
+    csrf_protection: ~
+    validation:      { enable_annotations: true }    
+    templating:
+        engines: ['twig', 'php']   
+    session:
+        storage_id: session.storage.mock_file
+     
+# Twig Configuration        
+twig:
+    debug:            %kernel.debug%
+    strict_variables: %kernel.debug%        
+           
+# Doctrine Configuration        
+doctrine:
+    dbal:
+        driver: pdo_sqlite
+        path: %kernel.cache_dir%/database.db
+        
+    orm:
+        auto_generate_proxy_classes: %kernel.debug%
+        auto_mapping: true 
+   
+# Swifmailer Configuration   
+swiftmailer:
+    disable_delivery: true
+
+# StofDoctrineExtensions Configuration            
+stof_doctrine_extensions:
+    orm:
+        default:
+            timestampable: true
+           
+# IRContact Configuration            
+ir_contact:
+    db_driver: orm 
+    message_class: IR\Bundle\ContactBundle\Tests\Functional\Bundle\TestBundle\Entity\Message
+    notification: 
+        from_email:
+            address: sender@example.com
+            sender_name: Foo Bar
+        to_email: recipient@example.com

@@ -1,0 +1,16 @@
+{% trans_default_domain 'ir_contact' %}
+
+{% block subject %}
+{% autoescape false %}
+{{ 'notification.subject'|trans({'%subject%': message.subject}) }}
+{% endautoescape %}
+{% endblock subject %}
+
+{% block body_text %}
+{% autoescape false %}
+{{ 'notification.message'|trans({'%email%': message.email, '%subject%': message.subject, '%message%': message.message}) }}
+{% endautoescape %}
+{% endblock body_text %}
+
+{% block body_html %}
+{% endblock body_html %}
