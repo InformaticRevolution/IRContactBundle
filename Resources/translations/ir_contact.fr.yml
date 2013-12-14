@@ -19,7 +19,7 @@ message:
 # Notification        
 notification:
     subject: "Formulaire de contact : %subject%"
-    message: |
+    body: |
         Bonjour,
         
         Vous venez de recevoir un nouveau message depuis le formulaire de contact.

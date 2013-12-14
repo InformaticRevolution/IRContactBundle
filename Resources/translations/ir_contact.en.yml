@@ -19,7 +19,7 @@ message:
 # Notification        
 notification:
     subject: "Contact Form : %subject%"
-    message: |
+    body: |
         Hi,
         
         You've received a new message from the contact form.
