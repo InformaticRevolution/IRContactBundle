@@ -31,14 +31,14 @@
             </constraint>
         </property> 
         
-        <property name="message">
+        <property name="body">
             <constraint name="NotBlank">
-                <option name="message">ir_contact.message.message.not_blank</option> 
+                <option name="message">ir_contact.message.body.not_blank</option> 
                 <option name="groups">Message</option>                        
             </constraint>
             <constraint name="Length">
                 <option name="min">2</option>
-                <option name="minMessage">ir_contact.message.message.min_length</option>
+                <option name="minMessage">ir_contact.message.body.min_length</option>
                 <option name="groups">Message</option>                     
             </constraint>
         </property>                       

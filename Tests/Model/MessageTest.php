@@ -40,7 +40,7 @@ class MessageTest extends \PHPUnit_Framework_TestCase
         return array(
             array('email', 'test@example.com', null),
             array('subject', 'New message', null),
-            array('message', 'Some message', null),
+            array('body', 'Some message...', null),
             array('createdAt', new \DateTime(), null),
         );
     }     

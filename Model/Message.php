@@ -36,7 +36,7 @@ abstract class Message implements MessageInterface
     /**
      * @var string
      */
-    protected $message;    
+    protected $body;    
     
     /**
      * @var \Datetime
@@ -87,17 +87,17 @@ abstract class Message implements MessageInterface
     /**
      * {@inheritdoc}
      */  
-    public function getMessage()
+    public function getBody()
     {
-        return $this->message;
+        return $this->body;
     }            
     
     /**
      * {@inheritdoc}
      */  
-    public function setMessage($message)
+    public function setBody($body)
     {
-        $this->message = $message;
+        $this->body = $body;
     }            
     
     /**

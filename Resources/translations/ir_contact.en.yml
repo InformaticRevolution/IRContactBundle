@@ -2,7 +2,7 @@
 message: 
     email: E-mail address
     subject: Subject
-    message: Message
+    body: Message
     created_at: Sent at
 
     list:
@@ -27,11 +27,11 @@ notification:
 
         Message:
 
-        %message%
+        %body%
         
 # Form field labels
 form:
     message:
         email : "E-mail address :"
         subject: "Subject :"
-        message: "Message :"
+        body: "Message :"

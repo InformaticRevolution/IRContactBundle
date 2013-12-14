@@ -54,18 +54,18 @@ interface MessageInterface
     public function setSubject($subject);
     
     /**
-     * Returns the message.
+     * Returns the body.
      * 
      * @return string
      */
-    public function getMessage();
+    public function getBody();
     
     /**
-     * Sets the message.
+     * Sets the body.
      * 
-     * @param string $message
+     * @param string $body
      */
-    public function setMessage($message);
+    public function setBody($body);
     
     /**
      * Returns the creation time.

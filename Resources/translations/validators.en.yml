@@ -9,6 +9,6 @@ ir_contact:
             min_length: The subject must be at least {{ limit }} characters long
             max_length: The subject cannot be longer than {{ limit }} characters     
             
-        message:
+        body:
             not_blank: Please enter a message
             min_length: The message must be at least {{ limit }} characters long            

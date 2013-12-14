@@ -37,7 +37,7 @@ class ContactControllerTest extends WebTestCase
             'ir_contact_message_form' => array (
                 'email' => 'foo@gmail.com',
                 'subject' => 'New message',
-                'message' => 'Some message...',
+                'body' => 'Some message...',
                 '_token' => $this->generateCsrfToken(static::FORM_INTENTION),
             ) 
         ));  
@@ -57,7 +57,7 @@ class ContactControllerTest extends WebTestCase
             'ir_contact_message_form' => array (
                 'email' => 'foo@gmail.com',
                 'subject' => 'New message',
-                'message' => 'Some message...',
+                'body' => 'Some message...',
                 '_token' => $this->generateCsrfToken(static::FORM_INTENTION),
             ) 
         ));  

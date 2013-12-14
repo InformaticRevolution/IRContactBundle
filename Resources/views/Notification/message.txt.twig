@@ -8,7 +8,7 @@
 
 {% block body_text %}
 {% autoescape false %}
-{{ 'notification.message'|trans({'%email%': message.email, '%subject%': message.subject, '%message%': message.message}) }}
+{{ 'notification.message'|trans({'%email%': message.email, '%subject%': message.subject, '%body%': message.body}) }}
 {% endautoescape %}
 {% endblock body_text %}
 
