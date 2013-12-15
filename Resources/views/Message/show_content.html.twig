@@ -18,6 +18,10 @@
     <table class="table table-bordered">
         <tbody>
             <tr>
+                <td>{{ 'message.created_at'|trans }}</td>
+                <td>{{ message.createdAt|date }}</td>
+            </tr>              
+            <tr>
                 <td>{{ 'message.email'|trans }}</td>
                 <td>{{ message.email }}</td>        
             </tr>  
@@ -27,12 +31,8 @@
             </tr>    
             <tr>
                 <td>{{ 'message.body'|trans }}</td>
-                <td>{{ message.body }}</td>        
-            </tr>                
-            <tr>
-                <td>{{ 'message.created_at'|trans }}</td>
-                <td>{{ message.createdAt|date }}</td>
-            </tr>     
+                <td>{{ message.body|nl2br }}</td>        
+            </tr>   
         </tbody>
     </table>
 </div>

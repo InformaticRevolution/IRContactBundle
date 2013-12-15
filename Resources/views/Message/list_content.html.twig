@@ -9,8 +9,8 @@
     <table class="table">
         <thead>
             <tr>
-                <th>{{ 'message.email'|trans }}</th> 
-                <th>{{ 'message.subject'|trans }}</th> 
+                <th>{{ 'message.subject'|trans }}</th>
+                <th>{{ 'message.email'|trans }}</th>  
                 <th></th>             
             </tr>
         </thead>
@@ -18,8 +18,8 @@
         <tbody>
         {% for message in messages %}
             <tr>
-                <td>{{ message.email }}</td>
                 <td>{{ message.subject }}</td>
+                <td>{{ message.email }}</td>
                 <td>
                     <div class="pull-right">
                         <a href="{{ path('ir_contact_message_show', {'id': message.id}) }}" class="btn btn-default">
