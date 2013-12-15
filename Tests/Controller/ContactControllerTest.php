@@ -33,7 +33,7 @@ class ContactControllerTest extends WebTestCase
     
     public function testNewActionPostMethod()
     {        
-        $this->client->request('POST', '/contact/submit', array(
+        $this->client->request('POST', '/contact/', array(
             'ir_contact_message_form' => array (
                 'email' => 'foo@gmail.com',
                 'subject' => 'New message',
@@ -53,7 +53,7 @@ class ContactControllerTest extends WebTestCase
     public function testNewMessageNotificationSent()
     {           
         $this->client->enableProfiler();
-        $this->client->request('POST', '/contact/submit', array(
+        $this->client->request('POST', '/contact/', array(
             'ir_contact_message_form' => array (
                 'email' => 'foo@gmail.com',
                 'subject' => 'New message',

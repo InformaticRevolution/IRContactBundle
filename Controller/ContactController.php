@@ -11,7 +11,6 @@
 
 namespace IR\Bundle\ContactBundle\Controller;
 
-use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\DependencyInjection\ContainerAware;
@@ -29,17 +28,7 @@ class ContactController extends ContainerAware
     /**
      * Show the contact form.
      */
-    public function indexAction()
-    {
-        $form = $this->container->get('ir_contact.form.message');
-        
-        return $this->renderIndex($form);         
-    }
-            
-    /**
-     * Handles the submitted contact form.
-     */
-    public function submitAction(Request $request)
+    public function indexAction(Request $request)
     {
         /* @var $messageManager \IR\Bundle\ContactBundle\Manager\MessageManagerInterface */
         $messageManager = $this->container->get('ir_contact.manager.message');
@@ -59,28 +48,21 @@ class ContactController extends ContainerAware
             return new RedirectResponse($this->container->get('router')->generate('ir_contact_index'));  
         }
         
-        return $this->renderIndex($form);         
-    }  
-    
-    /**
-     * Renders the index template.
-     * 
-     * @param FormInterface $form
-     */
-    public function renderIndex(FormInterface $form)
-    {
-        return $this->container->get('templating')->renderResponse('IRContactBundle:Contact:index.html.'.$this->getEngine(), array(
+        return $this->renderIndex(array(
             'form' => $form->createView(),
-        ));             
+        ));         
     }
 
     /**
-     * Returns the template engine.
+     * Renders the index template with the given parameters. Overwrite this function in
+     * an extended controller to provide additional data for the index template.
      * 
-     * @return string
-     */    
-   protected function getEngine()
+     * array $data
+     */
+    public function renderIndex(array $data)
     {
-        return $this->container->getParameter('ir_contact.template.engine');
-    } 
+        $template = sprintf('IRContactBundle:Contact:index.html.%s', $this->container->getParameter('ir_contact.template.engine'));
+        
+        return $this->container->get('templating')->renderResponse($template, $data);          
+    }
 }
