@@ -16,11 +16,7 @@
     </div>
 
     <table class="table table-bordered">
-        <tbody>
-            <tr>
-                <td>{{ 'message.created_at'|trans }}</td>
-                <td>{{ message.createdAt|date }}</td>
-            </tr>              
+        <tbody>     
             <tr>
                 <td>{{ 'message.email'|trans }}</td>
                 <td>{{ message.email }}</td>        
@@ -28,7 +24,11 @@
             <tr>
                 <td>{{ 'message.subject'|trans }}</td>
                 <td>{{ message.subject }}</td>        
-            </tr>    
+            </tr>
+            <tr>
+                <td>{{ 'message.created_at'|trans }}</td>
+                <td>{{ message.createdAt|date }}</td>
+            </tr>                     
             <tr>
                 <td>{{ 'message.body'|trans }}</td>
                 <td>{{ message.body|nl2br }}</td>        

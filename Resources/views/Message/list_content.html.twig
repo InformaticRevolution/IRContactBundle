@@ -9,8 +9,9 @@
     <table class="table">
         <thead>
             <tr>
-                <th>{{ 'message.subject'|trans }}</th>
                 <th>{{ 'message.email'|trans }}</th>  
+                <th>{{ 'message.subject'|trans }}</th>
+                <th>{{ 'message.created_at'|trans }}</th>
                 <th></th>             
             </tr>
         </thead>
@@ -18,8 +19,13 @@
         <tbody>
         {% for message in messages %}
             <tr>
-                <td>{{ message.subject }}</td>
                 <td>{{ message.email }}</td>
+                <td>{{ message.subject }}</td>
+                <td>
+                    <div class="pull-right">
+                        {{ message.createdAt|date('d M y') }}
+                    </div>
+                </td>
                 <td>
                     <div class="pull-right">
                         <a href="{{ path('ir_contact_message_show', {'id': message.id}) }}" class="btn btn-default">
