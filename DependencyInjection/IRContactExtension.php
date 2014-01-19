@@ -51,7 +51,7 @@ class IRContactExtension extends Extension
         
         if (!empty($config['notification'])) {
             $this->loadMailer($container, $loader, $config['service']['mailer']);
-            $this->loadNotification($config['notification'], $container, $loader, $config['service']['mailer']);
+            $this->loadNotification($config['notification'], $container, $loader);
         }         
     }
     
