@@ -80,8 +80,7 @@ class TwigSwiftMailer implements MailerInterface
         $message = \Swift_Message::newInstance()
             ->setSubject($subject)
             ->setFrom($fromEmail)
-            ->setTo($toEmail)
-        ;
+            ->setTo($toEmail);
 
         if (!empty($htmlBody)) {
             $message->setBody($htmlBody, 'text/html')

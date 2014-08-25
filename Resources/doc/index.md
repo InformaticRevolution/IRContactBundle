@@ -115,10 +115,10 @@ In XML:
 ``` xml
 <!-- src/Acme/ContactBundle/Resources/config/doctrine/Message.orm.xml -->
 <?xml version="1.0" encoding="UTF-8"?>
+
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
-                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
-                                      http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
     <entity name="Acme\ContactBundle\Entity\Message" table="acme_contact_message">
         <id name="id" type="integer" column="id">
@@ -150,8 +150,8 @@ ir_contact:
     resource: "@IRContactBundle/Resources/config/routing/contact.xml"
     prefix: /contact
 
-ir_contact_message:
-    resource: "@IRContactBundle/Resources/config/routing/message.xml"
+ir_contact_admin_message:
+    resource: "@IRContactBundle/Resources/config/routing/admin/message.xml"
     prefix: /admin/messages
 ```
 

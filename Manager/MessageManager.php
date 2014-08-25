@@ -21,7 +21,7 @@ abstract class MessageManager implements MessageManagerInterface
     /**
      * {@inheritdoc}
      */  
-    public function createMessage()
+    public function create()
     {
         $class = $this->getClass();
         

@@ -25,43 +25,54 @@ interface MessageManagerInterface
      *
      * @return MessageInterface
      */    
-    public function createMessage();
+    public function create();
     
     /**
-     * Updates a message.
+     * Saves a message.
      *
      * @param MessageInterface $message
      */
-    public function updateMessage(MessageInterface $message);    
+    public function save(MessageInterface $message);    
          
     /**
      * Deletes a message.
      *
      * @param MessageInterface $message
      */
-    public function deleteMessage(MessageInterface $message);    
+    public function delete(MessageInterface $message);    
 
     /**
-     * Finds a message by given criteria.
+     * Finds a message by its identifier.
+     *
+     * @param mixed $id
+     *
+     * @return MessageInterface|null
+     */
+    public function find($id);
+
+    /**
+     * Finds a single message by a set of criteria.
      *
      * @param array $criteria
      *
      * @return MessageInterface|null
      */
-    public function findMessageBy(array $criteria);    
+    public function findOneBy(array $criteria);    
     
     /**
-     * Finds messages by given criteria.
-     * 
-     * @param array      $criteria
-     * @param array|null $orderBy
-     * 
+     * Finds messages by a set of criteria.
+     *
+     * @param array        $criteria
+     * @param array|null   $orderBy
+     * @param integer|null $limit
+     * @param integer|null $offset
+     *
      * @return array
      */
-    public function findMessagesBy(array $criteria, array $orderBy = null);
+    public function findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null); 
 
     /**
-     * Returns the message's fully qualified class name.
+     * Returns the fully qualified class name.
      *
      * @return string
      */

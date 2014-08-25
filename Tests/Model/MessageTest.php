@@ -11,7 +11,7 @@
 
 namespace IR\Bundle\ContactBundle\Tests\Model;
 
-use IR\Bundle\ContactBundle\Model\Message;
+use IR\Bundle\ContactBundle\Model\MessageInterface;
 
 /**
  * Message Test.
@@ -31,7 +31,7 @@ class MessageTest extends \PHPUnit_Framework_TestCase
         $message = $this->getMessage();
 
         $this->assertEquals($default, $message->$getter());
-        $message->$setter($value);
+        $this->assertSame($message, $message->$setter($value));
         $this->assertEquals($value, $message->$getter());
     }
     
@@ -46,7 +46,7 @@ class MessageTest extends \PHPUnit_Framework_TestCase
     }     
     
     /**
-     * @return Message
+     * @return MessageInterface
      */
     protected function getMessage()
     {

@@ -32,14 +32,14 @@ class ContactController extends ContainerAware
     {
         /* @var $messageManager \IR\Bundle\ContactBundle\Manager\MessageManagerInterface */
         $messageManager = $this->container->get('ir_contact.manager.message');
-        $message = $messageManager->createMessage();        
+        $message = $messageManager->create();        
         
         $form = $this->container->get('ir_contact.form.message');
         $form->setData($message);
         $form->handleRequest($request);  
 
         if ($form->isValid()) {
-            $messageManager->updateMessage($message);
+            $messageManager->save($message);
             
             /* @var $dispatcher \Symfony\Component\EventDispatcher\EventDispatcherInterface */
             $dispatcher = $this->container->get('event_dispatcher');          
@@ -57,12 +57,20 @@ class ContactController extends ContainerAware
      * Renders the index template with the given parameters. Overwrite this function in
      * an extended controller to provide additional data for the index template.
      * 
-     * array $data
+     * @param array $data
      */
     public function renderIndex(array $data)
-    {
-        $template = sprintf('IRContactBundle:Contact:index.html.%s', $this->container->getParameter('ir_contact.template.engine'));
-        
-        return $this->container->get('templating')->renderResponse($template, $data);          
+    {        
+        return $this->container->get('templating')->renderResponse('IRContactBundle:Contact:index.html.'.$this->getEngine(), $data);          
     }
+    
+    /**
+     * Returns the template engine.
+     * 
+     * @return string
+     */    
+    protected function getEngine()
+    {
+        return $this->container->getParameter('ir_contact.template.engine');
+    }  
 }

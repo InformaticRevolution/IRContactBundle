@@ -56,33 +56,35 @@ class MessageManager extends AbstractMessageManager
     }      
     
     /**
-     * Updates a message.
-     *
-     * @param MessageInterface $message
-     * @param Boolean          $andFlush Whether to flush the changes (default true)
-     */ 
-    public function updateMessage(MessageInterface $message, $andFlush = true)
+     * {@inheritDoc}
+     */  
+    public function save(MessageInterface $message)
     {  
         $this->objectManager->persist($message);
-        
-        if ($andFlush) {
-            $this->objectManager->flush();
-        }   
+        $this->objectManager->flush();
     }
 
     /**
      * {@inheritDoc}
      */     
-    public function deleteMessage(MessageInterface $message)
+    public function delete(MessageInterface $message)
     {
         $this->objectManager->remove($message);
         $this->objectManager->flush();          
+    }
+    
+    /**
+     * {@inheritDoc}
+     */ 
+    public function find($id)     
+    {
+        return $this->repository->find($id);
     }
 
     /**
      * {@inheritDoc}
      */
-    public function findMessageBy(array $criteria)
+    public function findOneBy(array $criteria)
     {
         return $this->repository->findOneBy($criteria);
     }    
@@ -90,9 +92,9 @@ class MessageManager extends AbstractMessageManager
     /**
      * {@inheritDoc}
      */
-    public function findMessagesBy(array $criteria, array $orderBy = null)
+    public function findBy(array $criteria, array $orderBy = null, $limite = null, $offset = null)
     {
-        return $this->repository->findBy($criteria, $orderBy);
+        return $this->repository->findBy($criteria, $orderBy, $limite, $offset);
     }
 
     /**

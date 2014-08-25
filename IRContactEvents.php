@@ -30,5 +30,5 @@ final class IRContactEvents
      *
      * The event listener method receives a IR\Bundle\ContactBundle\Event\MessageEvent instance.
      */
-    const MESSAGE_DELETE_COMPLETED = 'ir_contact.message.delete.completed'; 
+    const MESSAGE_DELETE_COMPLETED = 'ir_contact.admin.message.delete.completed'; 
 }

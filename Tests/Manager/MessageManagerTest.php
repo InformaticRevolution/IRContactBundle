@@ -11,7 +11,7 @@
 
 namespace IR\Bundle\ContactBundle\Tests\Manager;
 
-use IR\Bundle\ContactBundle\Manager\MessageManager;
+use IR\Bundle\ContactBundle\Manager\MessageManagerInterface;
 
 /**
  * Message Manager Test.
@@ -23,24 +23,27 @@ class MessageManagerTest extends \PHPUnit_Framework_TestCase
     const MESSAGE_CLASS = 'IR\Bundle\ContactBundle\Tests\TestMessage';
  
     /**
-     * @var MessageManager
+     * @var MessageManagerInterface
      */
     protected $messageManager;    
     
     
+    /**
+     * {@inheritdoc}
+     */
     public function setUp()
     {
         $this->messageManager = $this->getMockForAbstractClass('IR\Bundle\ContactBundle\Manager\MessageManager');
         
         $this->messageManager->expects($this->any())
             ->method('getClass')
-            ->will($this->returnValue(static::MESSAGE_CLASS));        
+            ->will($this->returnValue(self::MESSAGE_CLASS));        
     }
     
-    public function testCreateMessage()
+    public function testCreate()
     {        
-        $message = $this->messageManager->createMessage();
+        $message = $this->messageManager->create();
         
-        $this->assertInstanceOf(static::MESSAGE_CLASS, $message);
+        $this->assertInstanceOf(self::MESSAGE_CLASS, $message);
     }
 }

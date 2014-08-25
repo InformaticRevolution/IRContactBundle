@@ -39,7 +39,7 @@ abstract class Message implements MessageInterface
     protected $body;    
     
     /**
-     * @var \Datetime
+     * @var \DateTime
      */
     protected $createdAt;
     
@@ -66,6 +66,8 @@ abstract class Message implements MessageInterface
     public function setEmail($email)
     {
         $this->email = $email;
+        
+        return $this;
     }            
     
     /**
@@ -82,6 +84,8 @@ abstract class Message implements MessageInterface
     public function setSubject($subject)
     {
         $this->subject = $subject;
+        
+        return $this;
     }
             
     /**
@@ -98,6 +102,8 @@ abstract class Message implements MessageInterface
     public function setBody($body)
     {
         $this->body = $body;
+        
+        return $this;
     }            
     
     /**
@@ -111,8 +117,10 @@ abstract class Message implements MessageInterface
     /**
      * {@inheritdoc}
      */   
-    public function setCreatedAt(\Datetime $createdAt)
+    public function setCreatedAt(\DateTime $createdAt)
     {
-        $this->createdAt = $createdAt;        
+        $this->createdAt = $createdAt;
+        
+        return $this;
     }            
 }

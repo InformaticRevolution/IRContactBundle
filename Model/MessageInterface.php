@@ -36,6 +36,8 @@ interface MessageInterface
      * Sets the email.
      * 
      * @param string $email
+     * 
+     * @return self
      */
     public function setEmail($email);
     
@@ -50,6 +52,8 @@ interface MessageInterface
      * Sets the subject.
      * 
      * @param string $subject
+     * 
+     * @return self
      */
     public function setSubject($subject);
     
@@ -64,20 +68,24 @@ interface MessageInterface
      * Sets the body.
      * 
      * @param string $body
+     * 
+     * @return self
      */
     public function setBody($body);
     
     /**
      * Returns the creation time.
      *
-     * @return \Datetime
+     * @return \DateTime
      */
     public function getCreatedAt();   
     
     /**
      * Sets the creation time.
      * 
-     * @param \Datetime $createdAt
+     * @param \DateTime $createdAt
+     * 
+     * @return self
      */
-    public function setCreatedAt(\Datetime $createdAt);     
+    public function setCreatedAt(\DateTime $createdAt);     
 }

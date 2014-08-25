@@ -11,6 +11,7 @@
 
 namespace IR\Bundle\ContactBundle\Tests\Doctrine;
 
+use IR\Bundle\ContactBundle\Model\MessageInterface;
 use IR\Bundle\ContactBundle\Doctrine\MessageManager;
 
 /**
@@ -38,6 +39,9 @@ class MessageManagerTest extends \PHPUnit_Framework_TestCase
     protected $repository;
     
     
+    /**
+     * {@inheritdoc}
+     */
     public function setUp()
     {
         if (!interface_exists('Doctrine\Common\Persistence\ObjectManager')) {
@@ -50,22 +54,22 @@ class MessageManagerTest extends \PHPUnit_Framework_TestCase
                 
         $this->objectManager->expects($this->any())
             ->method('getRepository')
-            ->with($this->equalTo(static::MESSAGE_CLASS))
+            ->with($this->equalTo(self::MESSAGE_CLASS))
             ->will($this->returnValue($this->repository));        
 
         $this->objectManager->expects($this->any())
             ->method('getClassMetadata')
-            ->with($this->equalTo(static::MESSAGE_CLASS))
+            ->with($this->equalTo(self::MESSAGE_CLASS))
             ->will($this->returnValue($class));        
         
         $class->expects($this->any())
             ->method('getName')
-            ->will($this->returnValue(static::MESSAGE_CLASS));        
+            ->will($this->returnValue(self::MESSAGE_CLASS));        
         
-        $this->messageManager = new MessageManager($this->objectManager, static::MESSAGE_CLASS);
+        $this->messageManager = new MessageManager($this->objectManager, self::MESSAGE_CLASS);
     }    
     
-    public function testUpdateMessage()
+    public function testSave()
     {
         $message = $this->getMessage();
         
@@ -76,10 +80,10 @@ class MessageManagerTest extends \PHPUnit_Framework_TestCase
         $this->objectManager->expects($this->once())
             ->method('flush');
 
-        $this->messageManager->updateMessage($message);
+        $this->messageManager->save($message);
     }
     
-    public function testDeleteMessage()
+    public function testDelete()
     {
         $message = $this->getMessage();
         
@@ -90,10 +94,22 @@ class MessageManagerTest extends \PHPUnit_Framework_TestCase
         $this->objectManager->expects($this->once())
             ->method('flush');
 
-        $this->messageManager->deleteMessage($message);
+        $this->messageManager->delete($message);
     }      
-    
-    public function testFindMessageBy()
+
+    public function testFind()
+    {
+        $id = 11;
+        
+        $this->repository->expects($this->once())
+            ->method('find')
+            ->with($this->equalTo($id))
+            ->will($this->returnValue(array()));
+
+        $this->messageManager->find($id);
+    }
+
+    public function testFindOneBy()
     {
         $criteria = array("foo" => "bar");
         
@@ -102,30 +118,40 @@ class MessageManagerTest extends \PHPUnit_Framework_TestCase
             ->with($this->equalTo($criteria))
             ->will($this->returnValue(array()));
 
-        $this->messageManager->findMessageBy($criteria);
+        $this->messageManager->findOneBy($criteria);
     }
     
-    public function testFindCategoriesBy()
+    public function testFindBy()
     {
         $criteria = array("foo" => "bar");
-        $orderBy = array("created" => 'DESC');
+        $orderBy = array("foo" => "asc");
+        $limit = 3;
+        $offset = 0;
         
         $this->repository->expects($this->once())
             ->method('findBy')
-            ->with($this->equalTo($criteria), $this->equalTo($orderBy))
+            ->with(
+                $this->equalTo($criteria), 
+                $this->equalTo($orderBy), 
+                $this->equalTo($limit), 
+                $this->equalTo($offset)
+            )
             ->will($this->returnValue(array()));
 
-        $this->messageManager->findMessagesBy($criteria, $orderBy);
+        $this->messageManager->findBy($criteria, $orderBy, $limit, $offset);
     }    
     
     public function testGetClass()
     {
-        $this->assertEquals(static::MESSAGE_CLASS, $this->messageManager->getClass());
+        $this->assertEquals(self::MESSAGE_CLASS, $this->messageManager->getClass());
     }
     
+    /**
+     * @return MessageInterface
+     */
     protected function getMessage()
     {
-        $class = static::MESSAGE_CLASS;
+        $class = self::MESSAGE_CLASS;
 
         return new $class();
     }     

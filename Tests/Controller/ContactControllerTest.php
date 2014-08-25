@@ -35,10 +35,10 @@ class ContactControllerTest extends WebTestCase
     {        
         $this->client->request('POST', '/contact/', array(
             'ir_contact_message_form' => array (
-                'email' => 'foo@gmail.com',
-                'subject' => 'New message',
-                'body' => 'Some message...',
-                '_token' => $this->generateCsrfToken(static::FORM_INTENTION),
+                'email' => $this->faker->email(),
+                'subject' => $this->faker->sentence(3),
+                'body' => $this->faker->paragraph(3),
+                '_token' => $this->generateCsrfToken(self::FORM_INTENTION),
             ) 
         ));  
         
@@ -58,7 +58,7 @@ class ContactControllerTest extends WebTestCase
                 'email' => 'foo@gmail.com',
                 'subject' => 'New message',
                 'body' => 'Some message...',
-                '_token' => $this->generateCsrfToken(static::FORM_INTENTION),
+                '_token' => $this->generateCsrfToken(self::FORM_INTENTION),
             ) 
         ));  
         

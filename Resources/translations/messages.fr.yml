@@ -1,0 +1,43 @@
+ir_contact:
+    contact:
+        index:
+            title: Nous contacter
+            submit: Envoyer
+
+    notification:
+        subject: "Formulaire de contact : %subject%"
+        body: |
+            Bonjour,
+
+            Vous venez de recevoir un nouveau message depuis le formulaire de contact.
+            Vous pouvez répondre à cette personne par e-mail à l'adresse suivante: %email%.
+
+            Message:
+
+            %body% 
+
+    # Administration
+    admin:
+        message:
+            email: Adresse e-mail
+            subject: Objet
+            body: Message
+            created_at: Date d'envoi      
+
+            list:
+                title: Messages
+                no_results: Aucun message pour le moment.        
+            show:
+                title: Message
+                general_info: Informations générales 
+            action:
+                delete: Supprimer        
+            flash:
+                deleted: Le message a été supprimé
+        
+# Form field labels
+form:
+    message:
+        email : "Adresse e-mail :"
+        subject: "Objet :"
+        body: "Message :"

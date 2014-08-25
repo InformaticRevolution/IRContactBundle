@@ -25,6 +25,6 @@ class NoopMailer implements MailerInterface
      */
     public function sendNewMessageNotificationEmailMessage(MessageInterface $message) 
     {
-        // nothing happens.
+        // Do nothing.
     }    
 }

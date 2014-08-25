@@ -1,14 +1,14 @@
 ir_contact:
     message:
         email:
-            not_blank: Veuillez saisir une adresse e-mail
+            blank: Veuillez saisir une adresse e-mail
             invalid: Adresse e-mail invalide
             
         subject:
-            not_blank: Veuillez saisir l'objet du message
-            min_length: L'objet doit comporter au moins {{ limit }} caractères
-            max_length: L'objet ne doit pas comporter plus de {{ limit }} caractères 
+            blank: Veuillez saisir l'objet du message
+            short: L'objet doit comporter au moins {{ limit }} caractères
+            long: L'objet ne doit pas comporter plus de {{ limit }} caractères 
             
         body:
-            not_blank: Veuillez saisir un message
-            min_length: Le message doit comporter au moins {{ limit }} caractères
+            blank: Veuillez saisir un message
+            short: Le message doit comporter au moins {{ limit }} caractères

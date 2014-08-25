@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace IR\Bundle\ContactBundle\Controller;
+namespace IR\Bundle\ContactBundle\Controller\Admin;
 
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\DependencyInjection\ContainerAware;
@@ -20,7 +20,7 @@ use IR\Bundle\ContactBundle\Event\MessageEvent;
 use IR\Bundle\ContactBundle\Model\MessageInterface;
 
 /**
- * Controller managing the messages.
+ * Admin controller managing the messages.
  *
  * @author Julien Kirsch <informatic.revolution@gmail.com>
  */
@@ -31,9 +31,9 @@ class MessageController extends ContainerAware
      */
     public function listAction()
     {
-        $messages = $this->container->get('ir_contact.manager.message')->findMessagesBy(array(), array('createdAt' => 'DESC'));
+        $messages = $this->container->get('ir_contact.manager.message')->findBy(array(), array('createdAt' => 'DESC'));
 
-        return $this->container->get('templating')->renderResponse('IRContactBundle:Message:list.html.'.$this->getEngine(), array(
+        return $this->container->get('templating')->renderResponse('IRContactBundle:Admin/Message:list.html.'.$this->getEngine(), array(
             'messages' => $messages,
         ));
     }     
@@ -45,7 +45,7 @@ class MessageController extends ContainerAware
     {
         $message = $this->findMessageById($id);
 
-        return $this->container->get('templating')->renderResponse('IRContactBundle:Message:show.html.'.$this->getEngine(), array(
+        return $this->container->get('templating')->renderResponse('IRContactBundle:Admin/Message:show.html.'.$this->getEngine(), array(
             'message' => $message,
         ));
     }       
@@ -56,14 +56,14 @@ class MessageController extends ContainerAware
     public function deleteAction($id)
     {
         $message = $this->findMessageById($id);
-        $this->container->get('ir_contact.manager.message')->deleteMessage($message);
+        $this->container->get('ir_contact.manager.message')->delete($message);
         
         /* @var $dispatcher \Symfony\Component\EventDispatcher\EventDispatcherInterface */
         $dispatcher = $this->container->get('event_dispatcher');          
         $dispatcher->dispatch(IRContactEvents::MESSAGE_DELETE_COMPLETED, new MessageEvent($message));
         
-        return new RedirectResponse($this->container->get('router')->generate('ir_contact_message_list'));   
-    }       
+        return new RedirectResponse($this->container->get('router')->generate('ir_contact_admin_message_list'));   
+    }      
     
     /**
      * Finds a message by id.
@@ -76,7 +76,7 @@ class MessageController extends ContainerAware
      */
     protected function findMessageById($id)
     {
-        $message = $this->container->get('ir_contact.manager.message')->findMessageBy(array('id' => $id));
+        $message = $this->container->get('ir_contact.manager.message')->find($id);
 
         if (null === $message) {
             throw new NotFoundHttpException(sprintf('The message with id %s does not exist', $id));

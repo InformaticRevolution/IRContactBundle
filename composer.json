@@ -16,17 +16,16 @@
         "stof/doctrine-extensions-bundle": "1.1.*"
     },
     "require-dev": {
-        "symfony/class-loader": "*",
         "symfony/twig-bundle": "*",
         "symfony/finder": "*",
         "symfony/browser-kit": "*",
         "symfony/css-selector": "*",
         "symfony/form": "*",
         "symfony/validator": "*",
-        "symfony/yaml": "*",
         "symfony/swiftmailer-bundle": "*",
         "doctrine/doctrine-bundle": "*@dev",
 	"doctrine/orm": "*",
+        "fzaninotto/faker" : "~1.0",
         "nelmio/alice": "*"
     },  
     "config": {

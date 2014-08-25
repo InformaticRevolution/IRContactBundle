@@ -259,6 +259,9 @@ class IRContactExtensionTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse(($this->configuration->hasDefinition($id) ?: $this->configuration->hasAlias($id)));
     }      
     
+    /**
+     * {@inheritdoc}
+     */
     protected function tearDown()
     {
         unset($this->configuration);

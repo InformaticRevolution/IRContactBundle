@@ -11,6 +11,7 @@
 
 namespace IR\Bundle\ContactBundle\Tests\Functional;
 
+use Faker;
 use Nelmio\Alice\Fixtures;
 
 use Doctrine\ORM\Tools\SchemaTool;
@@ -31,11 +32,20 @@ class WebTestCase extends BaseWebTestCase
      * @var Client 
      */
     protected $client;
+    
+    /**
+     * @var Faker\Generator
+     */
+    protected $faker;
 
 
+    /**
+     * {@inheritdoc}
+     */
     protected function setUp()
     {
         $this->client = static::createClient();
+        $this->faker = Faker\Factory::create();
         $this->importDatabaseSchema();
     }        
     
@@ -104,6 +114,9 @@ class WebTestCase extends BaseWebTestCase
         $this->assertStringEndsWith($uri, $this->client->getHistory()->current()->getUri());
     }    
     
+    /**
+     * {@inheritdoc}
+     */
     protected function tearDown()
     {
         $fs = new Filesystem();

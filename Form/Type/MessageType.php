@@ -46,15 +46,12 @@ class MessageType extends AbstractType
         $builder
             ->add('email', null, array(                 
                 'label' => 'form.message.email',
-                'translation_domain' => 'ir_contact',
             ))   
             ->add('subject', null, array(                 
                 'label' => 'form.message.subject',
-                'translation_domain' => 'ir_contact',
             ))   
             ->add('body', null, array(                 
                 'label' => 'form.message.body',
-                'translation_domain' => 'ir_contact',
             ));
     }
    

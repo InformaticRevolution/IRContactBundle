@@ -5,9 +5,9 @@ framework:
     profiler: ~
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
-    form:            ~
+    form: ~
     csrf_protection: ~
-    validation:      { enable_annotations: true }    
+    validation: ~   
     templating:
         engines: ['twig', 'php']   
     session:
@@ -15,7 +15,7 @@ framework:
      
 # Twig Configuration        
 twig:
-    debug:            %kernel.debug%
+    debug: %kernel.debug%
     strict_variables: %kernel.debug%        
            
 # Doctrine Configuration        

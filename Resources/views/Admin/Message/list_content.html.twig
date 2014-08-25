@@ -1,7 +1,5 @@
-{% trans_default_domain 'ir_contact' %}
-
 <div class="page-header">
-    <h1>{{ 'message.list.title'|trans }}</h1>
+    <h1>{{ 'ir_contact.admin.message.list.title'|trans }}</h1>
 </div>    
 
 <div class="panel panel-default">
@@ -9,9 +7,9 @@
     <table class="table">
         <thead>
             <tr>
-                <th>{{ 'message.email'|trans }}</th>  
-                <th>{{ 'message.subject'|trans }}</th>
-                <th>{{ 'message.created_at'|trans }}</th>
+                <th>{{ 'ir_contact.admin.message.email'|trans }}</th>  
+                <th>{{ 'ir_contact.admin.message.subject'|trans }}</th>
+                <th>{{ 'ir_contact.admin.message.created_at'|trans }}</th>
                 <th></th>             
             </tr>
         </thead>
@@ -28,10 +26,10 @@
                 </td>
                 <td>
                     <div class="pull-right">
-                        <a href="{{ path('ir_contact_message_show', {'id': message.id}) }}" class="btn btn-default">
+                        <a href="{{ path('ir_contact_admin_message_show', {'id': message.id}) }}" class="btn btn-default">
                             <i class="glyphicon glyphicon-list"></i>
                         </a>
-                        <a href="{{ path('ir_contact_message_delete', {'id': message.id}) }}" class="btn btn-danger">
+                        <a href="{{ path('ir_contact_admin_message_delete', {'id': message.id}) }}" class="btn btn-danger">
                             <i class="glyphicon glyphicon-trash"></i>
                         </a>                            
                     </div>               
@@ -42,7 +40,7 @@
     </table>
     {% else %}
     <div class="panel-body">
-        {{ 'message.list.no_results'|trans }}
+        {{ 'ir_contact.admin.message.list.no_results'|trans }}
     </div>
     {% endif %}
 </div>

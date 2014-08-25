@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+
 <constraint-mapping xmlns="http://symfony.com/schema/dic/constraint-mapping"
-                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                    xsi:schemaLocation="http://symfony.com/schema/dic/constraint-mapping 
-                                        http://symfony.com/schema/dic/constraint-mapping/constraint-mapping-1.0.xsd">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/constraint-mapping http://symfony.com/schema/dic/constraint-mapping/constraint-mapping-1.0.xsd">
 
     <class name="IR\Bundle\ContactBundle\Model\Message">
         <property name="email">
             <constraint name="NotBlank">
-                <option name="message">ir_contact.message.email.not_blank</option>
+                <option name="message">ir_contact.message.email.blank</option>
                 <option name="groups">Message</option> 
             </constraint>
             <constraint name="Email">
@@ -19,26 +19,26 @@
         
         <property name="subject">
             <constraint name="NotBlank">
-                <option name="message">ir_contact.message.subject.not_blank</option> 
+                <option name="message">ir_contact.message.subject.blank</option> 
                 <option name="groups">Message</option>                        
             </constraint>
             <constraint name="Length">
                 <option name="min">2</option>
                 <option name="max">255</option>
-                <option name="minMessage">ir_contact.message.subject.min_length</option>
-                <option name="maxMessage">ir_contact.message.subject.max_length</option> 
+                <option name="minMessage">ir_contact.message.subject.short</option>
+                <option name="maxMessage">ir_contact.message.subject.long</option> 
                 <option name="groups">Message</option>                     
             </constraint>
         </property> 
         
         <property name="body">
             <constraint name="NotBlank">
-                <option name="message">ir_contact.message.body.not_blank</option> 
+                <option name="message">ir_contact.message.body.blank</option> 
                 <option name="groups">Message</option>                        
             </constraint>
             <constraint name="Length">
                 <option name="min">2</option>
-                <option name="minMessage">ir_contact.message.body.min_length</option>
+                <option name="minMessage">ir_contact.message.body.short</option>
                 <option name="groups">Message</option>                     
             </constraint>
         </property>                       
