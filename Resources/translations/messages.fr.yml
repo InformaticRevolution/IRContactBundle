@@ -9,6 +9,7 @@ ir_contact:
     notification:
         subject: "Formulaire de contact : %subject%"
         body: |
+
             Bonjour,
 
             Vous venez de recevoir un nouveau message depuis le formulaire de contact.
@@ -22,6 +23,7 @@ ir_contact:
     admin:
         message:
             email: Adresse e-mail
+            subject: Sujet
             created_at: Date d'envoi      
 
             list:
