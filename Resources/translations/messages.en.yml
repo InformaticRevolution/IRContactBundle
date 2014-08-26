@@ -7,7 +7,7 @@ ir_contact:
             message: Your request has been taken into account and will be processed as quickly as possible.
 
     notification:
-        subject: "Contact Form : %subject%"
+        subject: "New message : %subject%"
         body: |
 
             Hi,

@@ -7,7 +7,7 @@ ir_contact:
             message: Votre demande a été prise en compte et sera traitée dans les plus brefs délais.
 
     notification:
-        subject: "Formulaire de contact : %subject%"
+        subject: "Nouveau message : %subject%"
         body: |
 
             Bonjour,
