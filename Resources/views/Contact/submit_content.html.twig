@@ -1,0 +1,12 @@
+<div class="page-header">
+    <h1>{{ 'ir_contact.contact.submit.title'|trans }}</h1>
+</div>
+
+<form action="{{ path('ir_contact_submit') }}" {{ form_enctype(form) }} method="POST" class="form-horizontal" novalidate>
+    {{ form_widget(form) }}
+    <div class="form-group">
+        <div class="col-lg-offset-2 col-lg-10">
+            <button type="submit" class="btn btn-primary">{{ 'ir_contact.contact.submit.submit'|trans }}</button>
+        </div>
+    </div>            
+</form>

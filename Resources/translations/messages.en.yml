@@ -1,8 +1,10 @@
 ir_contact:
     contact:
-        index:
+        submit:
             title: Contact us
             submit: Send
+        confirmed:
+            message: Your request has been taken into account and will be processed as quickly as possible.
 
     notification:
         subject: "Contact Form : %subject%"
@@ -20,8 +22,6 @@ ir_contact:
     admin:
         message: 
             email: E-mail address
-            subject: Subject
-            body: Message
             created_at: Sent at
 
             list:
@@ -29,7 +29,9 @@ ir_contact:
                 no_results: You haven't received any message yet. 
             show:
                 title: Message
-                general_info: General information  
+                section:
+                    general_information: General information
+                    message: Message
             action:
                 delete: Delete        
             flash:

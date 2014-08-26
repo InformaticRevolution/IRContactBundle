@@ -26,9 +26,9 @@ use IR\Bundle\ContactBundle\Event\MessageEvent;
 class ContactController extends ContainerAware
 {
     /**
-     * Show the contact form.
+     * Submit form and send notification.
      */
-    public function indexAction(Request $request)
+    public function submitAction(Request $request)
     {
         /* @var $messageManager \IR\Bundle\ContactBundle\Manager\MessageManagerInterface */
         $messageManager = $this->container->get('ir_contact.manager.message');
@@ -45,25 +45,22 @@ class ContactController extends ContainerAware
             $dispatcher = $this->container->get('event_dispatcher');          
             $dispatcher->dispatch(IRContactEvents::MESSAGE_SUBMITTED, new MessageEvent($message));            
             
-            return new RedirectResponse($this->container->get('router')->generate('ir_contact_index'));  
+            return new RedirectResponse($this->container->get('router')->generate('ir_contact_confirmed'));  
         }
-        
-        return $this->renderIndex(array(
-            'form' => $form->createView(),
-        ));         
-    }
 
-    /**
-     * Renders the index template with the given parameters. Overwrite this function in
-     * an extended controller to provide additional data for the index template.
-     * 
-     * @param array $data
-     */
-    public function renderIndex(array $data)
-    {        
-        return $this->container->get('templating')->renderResponse('IRContactBundle:Contact:index.html.'.$this->getEngine(), $data);          
+        return $this->container->get('templating')->renderResponse('IRContactBundle:Contact:submit.html.'.$this->getEngine(), array(
+            'form' => $form->createView(),
+        ));        
     }
     
+    /**
+     * Confirm the user his message has been submitted.
+     */
+    public function confirmedAction()
+    {
+        return $this->container->get('templating')->renderResponse('IRContactBundle:Contact:confirmed.html.'.$this->getEngine(), array());
+    }
+
     /**
      * Returns the template engine.
      * 

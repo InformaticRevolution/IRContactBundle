@@ -2,45 +2,39 @@
     <h1>{{ 'ir_contact.admin.message.list.title'|trans }}</h1>
 </div>    
 
-<div class="panel panel-default">
-    {% if messages|length %}
-    <table class="table">
-        <thead>
-            <tr>
-                <th>{{ 'ir_contact.admin.message.email'|trans }}</th>  
-                <th>{{ 'ir_contact.admin.message.subject'|trans }}</th>
-                <th>{{ 'ir_contact.admin.message.created_at'|trans }}</th>
-                <th></th>             
-            </tr>
-        </thead>
+{% if messages|length %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>{{ 'ir_contact.admin.message.email'|trans }}</th>  
+            <th>{{ 'ir_contact.admin.message.subject'|trans }}</th>
+            <th>{{ 'ir_contact.admin.message.created_at'|trans }}</th>
+            <th></th>             
+        </tr>
+    </thead>
 
-        <tbody>
-        {% for message in messages %}
-            <tr>
-                <td>{{ message.email }}</td>
-                <td>{{ message.subject }}</td>
-                <td>
-                    <div class="pull-right">
-                        {{ message.createdAt|date('d M y') }}
-                    </div>
-                </td>
-                <td>
-                    <div class="pull-right">
-                        <a href="{{ path('ir_contact_admin_message_show', {'id': message.id}) }}" class="btn btn-default">
-                            <i class="glyphicon glyphicon-list"></i>
-                        </a>
-                        <a href="{{ path('ir_contact_admin_message_delete', {'id': message.id}) }}" class="btn btn-danger">
-                            <i class="glyphicon glyphicon-trash"></i>
-                        </a>                            
-                    </div>               
-                </td>               
-            </tr>
-        {% endfor %}        
-        </tbody>
-    </table>
-    {% else %}
-    <div class="panel-body">
-        {{ 'ir_contact.admin.message.list.no_results'|trans }}
-    </div>
-    {% endif %}
+    <tbody>
+    {% for message in messages %}
+        <tr>
+            <td>{{ message.email }}</td>
+            <td>{{ message.subject }}</td>
+            <td>{{ message.createdAt|date('d M y') }}</td>
+            <td>
+                <div class="pull-right">
+                    <a href="{{ path('ir_contact_admin_message_show', {'id': message.id}) }}" class="btn btn-default">
+                        <i class="glyphicon glyphicon-list"></i>
+                    </a>
+                    <a href="{{ path('ir_contact_admin_message_delete', {'id': message.id}) }}" class="btn btn-danger">
+                        <i class="glyphicon glyphicon-trash"></i>
+                    </a>                            
+                </div>               
+            </td>               
+        </tr>
+    {% endfor %}        
+    </tbody>
+</table>
+{% else %}
+<div class="panel-body">
+    {{ 'ir_contact.admin.message.list.no_results'|trans }}
 </div>
+{% endif %}

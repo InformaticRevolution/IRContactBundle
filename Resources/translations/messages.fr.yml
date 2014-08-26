@@ -1,8 +1,10 @@
 ir_contact:
     contact:
-        index:
+        submit:
             title: Nous contacter
             submit: Envoyer
+        confirmed:
+            message: Votre demande a été prise en compte et sera traitée dans les plus brefs délais.
 
     notification:
         subject: "Formulaire de contact : %subject%"
@@ -20,8 +22,6 @@ ir_contact:
     admin:
         message:
             email: Adresse e-mail
-            subject: Objet
-            body: Message
             created_at: Date d'envoi      
 
             list:
@@ -29,7 +29,9 @@ ir_contact:
                 no_results: Aucun message pour le moment.        
             show:
                 title: Message
-                general_info: Informations générales 
+                section:
+                    general_information: Informations générales
+                    message: Message
             action:
                 delete: Supprimer        
             flash:

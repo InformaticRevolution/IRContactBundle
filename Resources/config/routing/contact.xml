@@ -4,8 +4,12 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
         
-    <route id="ir_contact_index" pattern="/">
-        <default key="_controller">IRContactBundle:Contact:index</default>
+    <route id="ir_contact_submit" pattern="/">
+        <default key="_controller">IRContactBundle:Contact:submit</default>
+    </route>
+    
+    <route id="ir_contact_confirmed" pattern="/confirmed">
+        <default key="_controller">IRContactBundle:Contact:confirmed</default>
     </route>
 
 </routes>

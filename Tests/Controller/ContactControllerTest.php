@@ -35,7 +35,7 @@ class ContactControllerTest extends WebTestCase
     {        
         $this->client->request('POST', '/contact/', array(
             'ir_contact_message_form' => array (
-                'email' => $this->faker->email(),
+                'email' => $this->faker->freeEmail(),
                 'subject' => $this->faker->sentence(3),
                 'body' => $this->faker->paragraph(3),
                 '_token' => $this->generateCsrfToken(self::FORM_INTENTION),
@@ -47,17 +47,24 @@ class ContactControllerTest extends WebTestCase
         $this->client->followRedirect();
         
         $this->assertResponseStatusCode(200);
-        $this->assertCurrentUri('/contact/');
-    }  
+        $this->assertCurrentUri('/contact/confirmed');
+    }
+    
+    public function testConfirmedAction()
+    {
+        $this->client->request('GET', '/contact/confirmed');
+
+        $this->assertResponseStatusCode(200);
+    }
     
     public function testNewMessageNotificationSent()
     {           
         $this->client->enableProfiler();
         $this->client->request('POST', '/contact/', array(
             'ir_contact_message_form' => array (
-                'email' => 'foo@gmail.com',
-                'subject' => 'New message',
-                'body' => 'Some message...',
+                'email' => $this->faker->freeEmail(),
+                'subject' => $this->faker->sentence(3),
+                'body' => $this->faker->paragraph(3),
                 '_token' => $this->generateCsrfToken(self::FORM_INTENTION),
             ) 
         ));  
