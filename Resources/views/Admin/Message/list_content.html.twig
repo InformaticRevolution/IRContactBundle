@@ -6,8 +6,8 @@
 <table class="table table-striped">
     <thead>
         <tr>
+	    <th>{{ 'ir_contact.admin.message.subject'|trans }}</th>
             <th>{{ 'ir_contact.admin.message.email'|trans }}</th>  
-            <th>{{ 'ir_contact.admin.message.subject'|trans }}</th>
             <th>{{ 'ir_contact.admin.message.created_at'|trans }}</th>
             <th></th>             
         </tr>
@@ -16,8 +16,8 @@
     <tbody>
     {% for message in messages %}
         <tr>
+	    <td>{{ message.subject }}</td>
             <td>{{ message.email }}</td>
-            <td>{{ message.subject }}</td>
             <td>{{ message.createdAt|date('d M y') }}</td>
             <td>
                 <div class="pull-right">
