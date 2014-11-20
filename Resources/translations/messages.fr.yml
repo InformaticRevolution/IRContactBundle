@@ -22,7 +22,7 @@ ir_contact:
     # Administration
     admin:
         message:
-	    subject: Sujet
+            subject: Sujet
             email: Adresse électronique
             created_at: Date d'envoi
 
