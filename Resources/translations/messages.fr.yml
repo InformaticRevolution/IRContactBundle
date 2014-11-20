@@ -17,28 +17,28 @@ ir_contact:
 
             Message:
 
-            %body% 
+            %body%
 
     # Administration
     admin:
         message:
 	    subject: Sujet
             email: Adresse électronique
-            created_at: Date d'envoi      
+            created_at: Date d'envoi
 
             list:
                 title: Messages
-                no_results: Aucun message pour le moment.        
+                no_results: Aucun message pour le moment.
             show:
                 title: Message
                 section:
                     general_information: Informations générales
                     message: Message
             action:
-                delete: Supprimer        
+                delete: Supprimer
             flash:
                 deleted: Le message a été supprimé
-        
+
 # Form field labels
 form:
     message:
