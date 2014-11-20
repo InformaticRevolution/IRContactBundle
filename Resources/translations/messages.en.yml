@@ -21,9 +21,9 @@ ir_contact:
 
     # Administration
     admin:
-        message: 
+        message:
+	    subject: Subject 
             email: E-mail address
-            subject: Subject
             created_at: Sent at
 
             list:
@@ -42,6 +42,6 @@ ir_contact:
 # Form field labels
 form:
     message:
-        email : "E-mail address :"
-        subject: "Subject :"
-        body: "Message :"
+        email : E-mail address
+        subject: Subject
+        body: Message
