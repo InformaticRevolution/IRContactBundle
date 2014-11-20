@@ -24,7 +24,7 @@ ir_contact:
         message:
             subject: Sujet
             email: Adresse électronique
-            created_at: Date d'envoi
+            created_at: Envoyé le
 
             list:
                 title: Messages
