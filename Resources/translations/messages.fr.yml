@@ -9,11 +9,8 @@ ir_contact:
     notification:
         subject: "Nouveau message : %subject%"
         body: |
-
-            Bonjour,
-
             Vous venez de recevoir un nouveau message depuis le formulaire de contact.
-            Vous pouvez répondre à cette personne par e-mail à l'adresse suivante: %email%.
+            Vous pouvez répondre par e-mail à l'adresse suivante: %email%.
 
             Message:
 

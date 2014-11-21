@@ -1,13 +1,17 @@
 {% block subject %}
+{% spaceless %}
     {% autoescape false %}
         {{ 'ir_contact.notification.subject'|trans({'%subject%': message.subject}) }}
     {% endautoescape %}
+{% endspaceless %}
 {% endblock %}
 
 {% block body_text %}
+{% spaceless %}
     {% autoescape false %}
         {{ 'ir_contact.notification.body'|trans({'%email%': message.email, '%subject%': message.subject, '%body%': message.body}) }}
     {% endautoescape %}
+{% endspaceless %}
 {% endblock %}
 
 {% block body_html %}
