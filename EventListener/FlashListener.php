@@ -25,7 +25,7 @@ use IR\Bundle\ContactBundle\IRContactEvents;
 class FlashListener implements EventSubscriberInterface
 {
     private static $successMessages = array(
-        IRContactEvents::MESSAGE_DELETE_COMPLETED => 'admin.message.flash.deleted',         
+        IRContactEvents::MESSAGE_DELETE_COMPLETED => 'ir_contact.admin.message.flash.deleted',         
     );
 
     /**
