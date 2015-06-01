@@ -9,19 +9,20 @@
     </parameters>
 
     <services>
-        <service id="ir_contact.form.message" factory-service="form.factory" factory-method="createNamed" class="Symfony\Component\Form\Form">
+        <service id="ir_contact.form.message" class="Symfony\Component\Form\Form">
+            <factory service="form.factory" method="createNamed" />
             <argument>%ir_contact.form.name.message%</argument>
             <argument>%ir_contact.form.type.message%</argument>
             <argument>null</argument>
             <argument type="collection">
                 <argument key="validation_groups">%ir_contact.form.validation_groups.message%</argument>
-            </argument>              
-        </service>         
+            </argument>
+        </service>
 
         <service id="ir_contact.form.type.message" class="%ir_contact.form.type.message.class%">
             <argument>%ir_contact.model.message.class%</argument>
             <tag name="form.type" alias="ir_contact_message" />
-        </service>      
+        </service>
     </services>
 
 </container>
